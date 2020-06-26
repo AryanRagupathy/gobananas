@@ -64,7 +64,7 @@ function setup() {
 function draw() {
   background(180);
   
-    score = score -  Math.round(getFrameRate()/60);
+    score = score -  Math.round(getFrameRate()/45);
   
   trex.collide(invisibleGround);
   if(gameState == 0){
@@ -85,6 +85,9 @@ function draw() {
      
       obstaclesGroup.destroyEach();
     }
+    if((trex.scale-0.02)<=-0){
+    gameState = 1
+     }
     if (score<=0){
   gameState = 1
    }
@@ -172,6 +175,6 @@ function reset(){
   cloudsGroup.destroyEach();
   
   score = 500;
-  
+   trex.scale = 0.08;
 }
 
